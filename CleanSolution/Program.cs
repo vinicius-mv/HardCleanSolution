@@ -10,7 +10,7 @@ public static class Program
         Console.WriteLine($"Cleaning files inside 'bin' and 'obj' folders at path: '{currentDir}'");
         Console.Write("Are you that you want to continue? (y/n): ");
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine() ?? string.Empty;
         if (!string.Equals("y", input, StringComparison.CurrentCultureIgnoreCase)) 
             return;
 
