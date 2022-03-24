@@ -6,15 +6,13 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Cleaning BIN and OBJ Folders Inside the current Directory");
-
+        string currentDir = Directory.GetCurrentDirectory();
+        Console.WriteLine($"Cleaning files inside 'bin' and 'obj' folders at path: '{currentDir}'");
         Console.Write("Are you that you want to continue? (y/n): ");
 
-        var input = Console.ReadLine();
+        string input = Console.ReadLine();
         if (!string.Equals("y", input, StringComparison.CurrentCultureIgnoreCase)) 
             return;
-
-        var currentDir = Directory.GetCurrentDirectory();
 
         string pattern = "bin";
         string[] subDirs = SearchDirectories(currentDir, pattern);
@@ -25,7 +23,6 @@ public static class Program
         DeleteDirectories(subDirs);
 
         Console.WriteLine("Solution has been cleaned!!!");
-
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
     }
